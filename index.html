@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HOMESTEAD — Private Tarkov, Done Right</title>
+<style>
+  :root{
+    --bg:#101311; --panel:#181c19; --panel2:#1f2420; --line:#2c332d;
+    --text:#d6d2c4; --dim:#8f8b7e; --tan:#c7b299; --green:#9bb27a; --red:#c96a5a;
+    --common:#e8e6df; --rare:#4da3e0; --epic:#a86fd6; --leg:#e6d95c; --uber:#ffd700; --unob:#58f04a; --op:#ff5c5c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:0 16px 80px}
+  .wrap{max-width:780px;margin:0 auto}
+  header{padding:64px 0 28px;text-align:center;border-bottom:1px solid var(--line)}
+  header .kicker{color:var(--green);letter-spacing:.25em;font-size:12px;text-transform:uppercase}
+  h1{font-size:44px;letter-spacing:.06em;color:var(--tan);margin:10px 0 6px;font-weight:800}
+  header p.sub{color:var(--dim);font-size:18px;max-width:560px;margin:0 auto}
+  h2{color:var(--tan);font-size:22px;margin:48px 0 14px;letter-spacing:.03em}
+  h2 .num{color:var(--green);font-size:14px;vertical-align:middle;margin-right:8px}
+  p{margin:10px 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+  @media(max-width:640px){.vs{grid-template-columns:1fr}}
+  .vs .card h3{font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  .vs .bad h3{color:var(--red)} .vs .good h3{color:var(--green)}
+  .vs ul{list-style:none} .vs li{padding:5px 0 5px 22px;position:relative;font-size:15px}
+  .bad li::before{content:"✕";position:absolute;left:0;color:var(--red)}
+  .good li::before{content:"✓";position:absolute;left:0;color:var(--green)}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}
+  th{color:var(--dim);text-align:left;font-weight:600;text-transform:uppercase;font-size:11.5px;letter-spacing:.08em;padding:8px 10px;border-bottom:1px solid var(--line)}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{color:var(--tan);white-space:nowrap;font-weight:600}
+  .key{background:var(--panel2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 7px;font:13px ui-monospace,Consolas,monospace;color:var(--text);white-space:nowrap}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+  .chip{padding:3px 12px;border-radius:6px;font-size:13px;font-weight:700;color:#111}
+  .note{border-left:3px solid var(--green);background:var(--panel);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+  .warn{border-left-color:var(--red)}
+  ol.steps{counter-reset:s;list-style:none;margin:14px 0}
+  ol.steps>li{counter-increment:s;padding:14px 0 14px 52px;position:relative;border-bottom:1px dashed var(--line)}
+  ol.steps>li::before{content:counter(s);position:absolute;left:0;top:14px;width:34px;height:34px;border-radius:50%;
+    background:var(--panel2);border:1px solid var(--line);color:var(--green);font-weight:800;display:flex;align-items:center;justify-content:center}
+  ol.steps b{color:var(--tan)}
+  a{color:var(--green)}
+  .small{font-size:13.5px;color:var(--dim)}
+  footer{margin-top:56px;text-align:center;color:var(--dim);font-size:13px;border-top:1px solid var(--line);padding-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">You're invited</div>
+  <h1>HOMESTEAD</h1>
+  <p class="sub">A private Escape&nbsp;from&nbsp;Tarkov server for the crew.
+  Real Tarkov, zero cheaters, AI that actually plays the game — running 24/7 on dedicated hardware.</p>
+</header>
+
+<h2><span class="num">01</span>What is this?</h2>
+<p>It's the full Escape from Tarkov — same maps, guns, quests, traders, flea market, hideout —
+running on a <b>private server I host</b>. You install a separate modded copy (your real EFT stays untouched),
+connect to my box, and we raid together co-op. Every enemy is AI, but not the brain-dead vanilla kind:
+a stack of the best community mods makes bots fight, quest, and loot like actual players.</p>
+<p>If you played live Tarkov years ago and quit — this is the version that respects your time.
+If you never played: it's the most intense loot-shooter ever made, and this is the friendliest possible way in.</p>
+
+<h2><span class="num">02</span>Why it beats the official servers</h2>
+<div class="vs">
+  <div class="card bad">
+    <h3>Live Tarkov</h3>
+    <ul>
+      <li>Cheaters in a huge share of raids — killed through walls by nothing</li>
+      <li>Queue times, desync, server lag</li>
+      <li>Wipes delete your progress on BSG's schedule</li>
+      <li>Sweats with 5,000 hours farming your spawn</li>
+      <li>Solo grind — friends fall behind, group play punished</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <h3>Homestead</h3>
+    <ul>
+      <li>Zero cheaters. Ever. If you die, it was fair</li>
+      <li>Raids start when we say; server 4 doors down from my fridge</li>
+      <li>Progress is ours — wipe only if we vote to</li>
+      <li>Enemies scale with our levels — hard, but honest</li>
+      <li>Shared kill XP, level with the squad, daily profile backups</li>
+    </ul>
+  </div>
+</div>
+
+<h2><span class="num">03</span>The AI — the star of the show</h2>
+<p>Vanilla single-player bots stand still and miss. Ours don't. Five mods work together server-side:</p>
+<table>
+  <tr><th>Mod</th><th>What you'll actually notice</th></tr>
+  <tr><td>SAIN</td><td>Human-like combat: they suppress, flank, take cover, push when you reload, hesitate, panic, talk. Custom-tuned difficulty for our group.</td></tr>
+  <tr><td>Questing Bots</td><td>Enemy "PMCs" spawn like real players and <i>run their own quests</i> across the map — you'll cross paths at objectives, not spawn-camps. They extract when they're done (min 15 min in raid).</td></tr>
+  <tr><td>Looting Bots</td><td>Bots loot bodies and containers, and get richer as the raid goes. Kill the guy who cleaned out dorms — get his backpack.</td></tr>
+  <tr><td>APBS</td><td>Bot gear progresses with <i>our</i> levels. Early wipe: scavs with shotguns. Later: geared squads with meta rigs. Something worth taking on every body.</td></tr>
+  <tr><td>BigBrain + Waypoints</td><td>The plumbing — smarter pathing and decision layers so all of the above works.</td></tr>
+</table>
+
+<h2><span class="num">04</span>Loot &amp; economy</h2>
+<p>Loot is tuned <b>up</b> from vanilla, every container spawns, and keys drop meaningfully more often.
+The best part — every item in the game is <b>color-graded like an MMO</b>, so new players instantly know
+what to grab:</p>
+<div class="chips">
+  <span class="chip" style="background:var(--common)">Common</span>
+  <span class="chip" style="background:var(--rare)">Rare</span>
+  <span class="chip" style="background:var(--epic)">Epic</span>
+  <span class="chip" style="background:var(--leg)">Legendary</span>
+  <span class="chip" style="background:var(--uber)">Uber</span>
+  <span class="chip" style="background:var(--unob)">Unobtainium</span>
+  <span class="chip" style="background:var(--op)">Flea-banned ★</span>
+</div>
+<p class="small">Item descriptions also show flea price + best trader to sell to, valuable items get ★ marks,
+ammo shows damage/pen right in its name, and armor shows real effective stats.</p>
+<table>
+  <tr><th>Also running</th><th>What it does</th></tr>
+  <tr><td>QuickSellFlea</td><td>One click lists an item on the flea at average price. No spreadsheet gaming.</td></tr>
+  <tr><td>KeyHunter</td><td>Sane key spawn rates in jackets/bags/scavs.</td></tr>
+  <tr><td>All The Clothes</td><td>Every outfit in the game purchasable from Ragman.</td></tr>
+  <tr><td>Quest Tweaks + Ref quests</td><td>Annoying quest requirements softened; arena-locked quests doable here.</td></tr>
+</table>
+
+<h2><span class="num">05</span>Quality of life (your in-game toolkit)</h2>
+<div class="note">Press <span class="key">F12</span> at the main menu or in raid — that's the settings panel for
+<b>all</b> client mods. Every hotkey below can be rebound there. Press <span class="key">Esc</span> to close it.</div>
+<table>
+  <tr><th>Mod</th><th>What it does</th><th>Hotkey</th></tr>
+  <tr><td>Dynamic Maps</td><td>A real interactive map in raid: your position, teammates, extracts, quest markers. Also a quick "peek" mode to glance while moving.</td><td><span class="key">M</span> (map screen) · peek key: set in F12</td></tr>
+  <tr><td>Quest Tracker</td><td>On-screen overlay listing your active quest objectives for this map.</td><td>set in F12</td></tr>
+  <tr><td>MoreCheckmarks</td><td>Items get icons: needed for hideout, for quests, worth keeping for barters. No more selling something you needed.</td><td>automatic</td></tr>
+  <tr><td>Amands' Sense</td><td>Short-range "loot sense" pulse highlighting nearby items/containers/bodies. Tuned modestly — helper, not wallhack.</td><td>set in F12</td></tr>
+  <tr><td>Skipper</td><td>A "skip quest" button for any quest that isn't fun for you. Casual-friendly by design — use it guilt-free.</td><td>button in quest screen</td></tr>
+  <tr><td>UI Fixes</td><td>Dozens of inventory fixes: swap items in place, autostack, load ammo presets, mousewheel scope zoom…</td><td>automatic</td></tr>
+  <tr><td>Continuous Healing + Autocancel</td><td>Meds automatically continue to the next limb and stop when full — no wasted charges, no menu fiddling mid-fight.</td><td>automatic</td></tr>
+  <tr><td>Fontaine's FOV Fix</td><td>Play at high FOV without broken scope zoom.</td><td>automatic</td></tr>
+  <tr><td>HollywoodFX</td><td>Explosions, impacts and tracers rebuilt — firefights look like a movie.</td><td>automatic</td></tr>
+  <tr><td>Smajlec's Lights + AO Replacer</td><td>Better color grading and lighting than vanilla's grey-brown soup.</td><td>toggle key in F12</td></tr>
+  <tr><td>Borkel's NVG</td><td>Night vision that looks like real NVGs. Night raids are a vibe.</td><td>customize in F12</td></tr>
+  <tr><td>Level Endurance &amp; Strength</td><td>Movement skills level even mildly overweight — less grief for loot goblins.</td><td>automatic</td></tr>
+</table>
+
+<h2><span class="num">06</span>How raids work with the crew</h2>
+<div class="card">
+<p>The server runs a <b>headless host</b> — a dedicated game instance on my box that hosts every raid.
+Nobody's PC does the heavy lifting, and nobody has to stay till the end: die early, leave, your loot state is saved.</p>
+<p>One of us clicks <b>Host Raid</b> → checks <b>Use Headless Host</b> → everyone joins from the lobby →
+host presses Start. Kill XP is shared across the group, so nobody falls behind.</p>
+</div>
+
+<h2><span class="num">07</span>Install (~1 hour, mostly downloads)</h2>
+<p><b>Requirements:</b> Windows, a legit EFT account (any edition), ~70&nbsp;GB free disk.</p>
+<ol class="steps">
+  <li><b>Install live EFT</b> via the official BSG launcher and let it download fully. (Files get copied; you won't play live.)</li>
+  <li><b>Install SPT.</b> Get the installer at <a href="https://forge.sp-tarkov.com/installer">forge.sp-tarkov.com/installer</a>, put it in a <b>new empty folder</b> (e.g. <span class="key">C:\SPT\</span>), run it. When it finishes, run <span class="key">SPT.Launcher.exe</span>, make a temp profile, and start one solo raid to confirm it works. <b>Version must be SPT&nbsp;4.0.13</b> — if an installer offers newer, stop and ask me.</li>
+  <li><b>Install Fika</b> (the co-op layer). Download <span class="key">Fika-Installer.exe</span> from <a href="https://github.com/project-fika/Fika-Installer/releases">github.com/project-fika/Fika-Installer</a>, put it in your SPT folder, run → <b>Install Fika</b>. The main menu should then show <b>FIKA 2.3.x | SPT 4.0.13</b> bottom-left.</li>
+  <li><b>Drop in the mod pack.</b> Grab <span class="key">homestead-modpack-2026-07-05.zip</span> (link comes with this invite) and extract it into your SPT folder so <span class="key">BepInEx</span> and <span class="key">EscapeFromTarkov_Data</span> merge. Say yes to all merges. <b>Never add/update mods on your own</b> — versions are pinned to the server.</li>
+  <li><b>Connect.</b> SPT.Launcher → Settings (gear) → Server URL → the address I send you (starts with <span class="key">https://</span>). Create your character through the launcher, launch, and in-game press <span class="key">F12</span> → Fika → Coop → enable <b>Shared Kill Experience</b> + <b>Shared Boss Experience</b>.</li>
+</ol>
+<div class="note warn"><b>Your first raid will load slowly</b> — it can sit at a low percentage for several minutes
+while ~120&nbsp;MB of custom assets download from the server (one time only). Don't alt-tab, don't force quit. It will move.</div>
+
+<h2><span class="num">08</span>If something breaks</h2>
+<div class="card">
+<ul style="list-style:none">
+  <li style="padding:4px 0">• Launcher won't connect → re-check the Server URL, must be <b>https://</b>, not http://.</li>
+  <li style="padding:4px 0">• Infinite loading / crash on join → your versions or mods don't match. Check bottom-left version text; re-extract the pack.</li>
+  <li style="padding:4px 0">• Anything weird → send me <span class="key">BepInEx\LogOutput.log</span> from your SPT folder. My server logs the rest.</li>
+</ul>
+</div>
+
+<h2><span class="num">09</span>Appendix — the full mod list</h2>
+<p class="small">Everything running, exhaustively. Server-side mods live on my box — you get their effects
+automatically. Client-side mods are what's inside your mod pack zip. All versions are pinned to SPT 4.0.13.</p>
+
+<h3 style="color:var(--green);font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:22px 0 4px">On the server (nothing for you to install)</h3>
+<table>
+  <tr><th>Mod</th><th>Version</th><th>What it does</th></tr>
+  <tr><td>SPT (Single Player Tarkov)</td><td>4.0.13</td><td>The foundation — the whole offline Tarkov backend: traders, flea, quests, hideout, profiles.</td></tr>
+  <tr><td>Fika (server)</td><td>2.3.2</td><td>The co-op layer — lets us all play in the same raid, plus the 24/7 headless raid host.</td></tr>
+  <tr><td>SAIN (server half)</td><td>4.4.3</td><td>Server side of the combat AI overhaul; holds our custom difficulty preset.</td></tr>
+  <tr><td>Questing Bots (server half)</td><td>0.11.0</td><td>Spawns PMC/player-scav bots on live-like schedules and assigns them quests.</td></tr>
+  <tr><td>Looting Bots (server half)</td><td>1.7.0</td><td>Server side of bot looting behavior.</td></tr>
+  <tr><td>SVM (Server Value Modifier)</td><td>2.1.2</td><td>Our server tuning: loot amounts up, all containers spawn, boss chances, insurance/heal tweaks, bigger secure containers.</td></tr>
+  <tr><td>APBS</td><td>2.2.1</td><td>Progressive bot gear — enemies' equipment tiers up as our group levels.</td></tr>
+  <tr><td>ODT's Item Info</td><td>2.0.14</td><td>The rarity color system + prices/best-trader in every item description + ammo stats in names.</td></tr>
+  <tr><td>All The Clothes</td><td>3.1.0</td><td>Every clothing option purchasable from Ragman.</td></tr>
+  <tr><td>KeyHunter</td><td>2.0.1</td><td>Sane key spawn rates in jackets, duffles, and scav pockets.</td></tr>
+  <tr><td>sgtlaggy's Quest Tweaks</td><td>4.6.0</td><td>Softens the most annoying quest requirements (times, conditions).</td></tr>
+  <tr><td>Ref Friendly Quests</td><td>2.0.3</td><td>Makes the arena-locked Ref quest line completable in normal raids.</td></tr>
+  <tr><td>Borkel's RNVG (server half)</td><td>2.1.1</td><td>Serves the night-vision assets.</td></tr>
+  <tr><td>MoreCheckmarks (backend)</td><td>2.2.0</td><td>Data feed for the item checkmark icons.</td></tr>
+  <tr><td>UI Fixes (server half)</td><td>5.3.9</td><td>Server support for the inventory QoL features.</td></tr>
+  <tr><td>Dynamic Maps (server half)</td><td>1.1.3</td><td>Server support for the in-raid map.</td></tr>
+</table>
+
+<h3 style="color:var(--green);font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:22px 0 4px">In your mod pack (client side)</h3>
+<table>
+  <tr><th>Mod</th><th>Version</th><th>What it does</th></tr>
+  <tr><td>SAIN</td><td>4.4.3</td><td>The combat AI brain — cover, flanking, suppression, human reaction times.</td></tr>
+  <tr><td>BigBrain</td><td>1.4.0</td><td>AI decision framework (required by SAIN &amp; co).</td></tr>
+  <tr><td>Waypoints</td><td>1.8.2</td><td>Expanded bot navigation mesh — bots go places vanilla bots can't.</td></tr>
+  <tr><td>Questing Bots</td><td>0.11.0</td><td>Client half of the questing/spawning system.</td></tr>
+  <tr><td>Looting Bots</td><td>1.7.0</td><td>Client half of bot looting.</td></tr>
+  <tr><td>UI Fixes</td><td>5.3.9</td><td>Dozens of inventory/menu fixes: swap in place, autostack, ammo presets, mousewheel scope zoom.</td></tr>
+  <tr><td>Fontaine's FOV Fix</td><td>4.0.1</td><td>High FOV without broken optics/zoom.</td></tr>
+  <tr><td>Dynamic Maps</td><td>1.1.3</td><td>Interactive in-raid map with you, squad, extracts, quests.</td></tr>
+  <tr><td>MoreCheckmarks</td><td>2.2.0</td><td>Item icons: needed for hideout / quests / barters.</td></tr>
+  <tr><td>Quest Tracker</td><td>1.6.0</td><td>Toggleable overlay of your objectives in raid.</td></tr>
+  <tr><td>Amands' Sense (Updated)</td><td>3.0.1</td><td>Short-range loot/container/body highlight pulse.</td></tr>
+  <tr><td>Skipper</td><td>1.1.4</td><td>"Skip quest" button — bypass any quest that isn't fun for you.</td></tr>
+  <tr><td>Continuous Healing</td><td>1.4.0</td><td>Meds auto-continue to the next damaged limb.</td></tr>
+  <tr><td>Healing Autocancel</td><td>5.0.0</td><td>Meds stop when the limb is full — no wasted charges.</td></tr>
+  <tr><td>QuickSellFlea</td><td>1.3.1</td><td>One-click flea listing at average price.</td></tr>
+  <tr><td>Level Endurance &amp; Strength</td><td>1.0.0</td><td>Movement skills keep leveling while mildly overweight.</td></tr>
+  <tr><td>Smajlec's Lights</td><td>1.2.0</td><td>Natural color grading instead of the grey-brown vanilla filter.</td></tr>
+  <tr><td>AO Replacer</td><td>1.0.3</td><td>Better ambient occlusion (GTAO) — more grounded, less flat lighting.</td></tr>
+  <tr><td>HollywoodFX</td><td>1.8.4</td><td>Rebuilt impacts, explosions, and effects — cinematic firefights.</td></tr>
+  <tr><td>Borkel's Realistic NVG</td><td>2.1.1</td><td>Night vision modeled on the real thing, customizable in F12.</td></tr>
+  <tr><td>Color Converter API</td><td>1.1.1</td><td>Enables the custom rarity colors client-side (required plumbing).</td></tr>
+</table>
+<p class="small">Plus, installed separately by you during setup: the Fika client plugin 2.3.3 (via Fika-Installer).</p>
+
+<footer>
+  HOMESTEAD · SPT 4.0.13 + Fika · dedicated hardware, 24/7 · profiles backed up daily<br>
+  Server address &amp; mod pack link come with this invite — ask me. Don't share either publicly.
+</footer>
+
+</div>
+</body>
+</html>
