@@ -94,8 +94,8 @@ If you never played: it's the most intense loot-shooter ever made, and this is t
 <table>
   <tr><th>Mod</th><th>What you'll actually notice</th></tr>
   <tr><td>SAIN</td><td>Human-like combat: they suppress, flank, take cover, push when you reload, hesitate, panic, talk. Custom-tuned difficulty for our group.</td></tr>
-  <tr><td>Questing Bots</td><td>Enemy "PMCs" spawn like real players and <i>run their own quests</i> across the map — you'll cross paths at objectives, not spawn-camps. They extract when they're done (min 15 min in raid).</td></tr>
-  <tr><td>Looting Bots</td><td>Bots loot bodies and containers, and get richer as the raid goes. Kill the guy who cleaned out dorms — get his backpack.</td></tr>
+  <tr><td>ORBIT</td><td>Bots play like players: squads roll real objectives — loot dorms, hunt PvP hotspots, visit quest spots — then extract when they've made their money or finished the job. Kill the guy who cleaned out dorms — get his backpack. They even upgrade their own gear mid-raid off bodies they drop.</td></tr>
+  <tr><td>ABPS</td><td>Live-like spawns: raids start populated and stay full, with bosses on realistic odds — no dead-map stretches, no endless waves dropped on your head.</td></tr>
   <tr><td>APBS</td><td>Bot gear progresses with <i>our</i> levels. Early wipe: scavs with shotguns. Later: geared squads with meta rigs. Something worth taking on every body.</td></tr>
   <tr><td>BigBrain + Waypoints</td><td>The plumbing — smarter pathing and decision layers so all of the above works.</td></tr>
 </table>
@@ -121,6 +121,7 @@ ammo shows damage/pen right in its name, and armor shows real effective stats.</
   <tr><td>KeyHunter</td><td>Sane key spawn rates in jackets/bags/scavs.</td></tr>
   <tr><td>All The Clothes</td><td>Every outfit in the game purchasable from Ragman.</td></tr>
   <tr><td>Quest Tweaks + Ref quests</td><td>Annoying quest requirements softened; arena-locked quests doable here.</td></tr>
+  <tr><td>Expanded Task Text</td><td>Quest descriptions include the wiki-tier info you'd normally alt-tab for: what to bring, where to go, needed keys.</td></tr>
 </table>
 
 <h2><span class="num">05</span>Tuned for fun, not grind</h2>
@@ -174,7 +175,7 @@ host presses Start. Kill XP is shared across the group, so nobody falls behind.<
   <li><b>Install live EFT</b> — official BSG launcher or Steam, both work fine. Let it download fully. (Files get copied; you won't play live.)</li>
   <li><b>Install SPT.</b> Get the installer at <a href="https://forge.sp-tarkov.com/installer">forge.sp-tarkov.com/installer</a>, put it in a <b>new empty folder</b> (e.g. <span class="key">C:\SPT\</span>), run it. When it finishes, run <span class="key">SPT.Launcher.exe</span>, make a temp profile, and start one solo raid to confirm it works. <b>Version must be SPT&nbsp;4.0.13</b> — if an installer offers newer, stop and ask me.</li>
   <li><b>Install Fika</b> (the co-op layer). Download <span class="key">Fika-Installer.exe</span> from <a href="https://github.com/project-fika/Fika-Installer/releases">github.com/project-fika/Fika-Installer</a>, put it in your SPT folder, run → <b>Install Fika</b>. The main menu should then show <b>FIKA 2.3.x | SPT 4.0.13</b> bottom-left.</li>
-  <li><b>Drop in the mod pack.</b> Download <a href="https://drive.google.com/file/d/1kFsZrPNF-kXM9fZ47CCtWaAIhXwRTbil/view?usp=sharing"><span class="key">homestead-modpack-2026-07-05.zip</span></a> (~350&nbsp;MB) and extract it into your SPT folder so <span class="key">BepInEx</span> and <span class="key">EscapeFromTarkov_Data</span> merge. Say yes to all merges. <b>Never add/update mods on your own</b> — versions are pinned to the server.</li>
+  <li><b>Drop in the mod pack.</b> Download <a href="https://drive.google.com/file/d/1PbRNhb68JIUZN6k99DiWr85N1Jc9Fyzj/view?usp=sharing"><span class="key">homestead-modpack-2026-07-06.zip</span></a> (~350&nbsp;MB) and extract it into your SPT folder so <span class="key">BepInEx</span>, <span class="key">EscapeFromTarkov_Data</span> and <span class="key">user</span> merge. Say yes to all merges. <b>Never add/update mods on your own</b> — versions are pinned to the server.</li>
   <li><b>Connect.</b> SPT.Launcher → Settings (gear) → Server URL → the address I send you (starts with <span class="key">https://</span>). Create your character through the launcher — <b>pick the "SPT Zero to Hero" edition</b> when asked: you start with a knife and nothing else. Trust us on this one — the server is tuned generous (see the tuning section), so the broke-scavenger arc at the start is the best part of the game. Then launch and play. (Shared squad XP is already enforced server-side — nothing to configure.)</li>
 </ol>
 <div class="note warn"><b>Your first raid will load slowly</b> — it can sit at a low percentage for several minutes
@@ -199,8 +200,8 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>SPT (Single Player Tarkov)</td><td>4.0.13</td><td>The foundation — the whole offline Tarkov backend: traders, flea, quests, hideout, profiles.</td></tr>
   <tr><td>Fika (server)</td><td>2.3.2</td><td>The co-op layer — lets us all play in the same raid, plus the 24/7 headless raid host.</td></tr>
   <tr><td>SAIN (server half)</td><td>4.4.3</td><td>Server side of the combat AI overhaul; holds our custom difficulty preset.</td></tr>
-  <tr><td>Questing Bots (server half)</td><td>0.11.0</td><td>Spawns PMC/player-scav bots on live-like schedules and assigns them quests.</td></tr>
-  <tr><td>Looting Bots (server half)</td><td>1.7.0</td><td>Server side of bot looting behavior.</td></tr>
+  <tr><td>ABPS (server half)</td><td>2.0.19</td><td>The spawn director — starting PMCs, live-like waves, boss odds; keeps raids full and different every time.</td></tr>
+  <tr><td>Expanded Task Text</td><td>2.0.3</td><td>Injects guide-level info into quest descriptions (items to bring, locations, keys).</td></tr>
   <tr><td>SVM (Server Value Modifier)</td><td>2.1.2</td><td>Our server tuning: loot amounts up, all containers spawn, boss chances, insurance/heal tweaks, bigger secure containers.</td></tr>
   <tr><td>APBS</td><td>2.2.1</td><td>Progressive bot gear — enemies' equipment tiers up as our group levels.</td></tr>
   <tr><td>ODT's Item Info</td><td>2.0.14</td><td>The rarity color system + prices/best-trader in every item description + ammo stats in names.</td></tr>
@@ -220,8 +221,8 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>SAIN</td><td>4.4.3</td><td>The combat AI brain — cover, flanking, suppression, human reaction times.</td></tr>
   <tr><td>BigBrain</td><td>1.4.0</td><td>AI decision framework (required by SAIN &amp; co).</td></tr>
   <tr><td>Waypoints</td><td>1.8.2</td><td>Expanded bot navigation mesh — bots go places vanilla bots can't.</td></tr>
-  <tr><td>Questing Bots</td><td>0.11.0</td><td>Client half of the questing/spawning system.</td></tr>
-  <tr><td>Looting Bots</td><td>1.7.0</td><td>Client half of bot looting.</td></tr>
+  <tr><td>ORBIT</td><td>1.2.1</td><td>The bot objective/looting/extraction brain — bots behave like real players.</td></tr>
+  <tr><td>ABPS</td><td>2.0.19</td><td>Client half of the spawn system.</td></tr>
   <tr><td>UI Fixes</td><td>5.3.9</td><td>Dozens of inventory/menu fixes: swap in place, autostack, ammo presets, mousewheel scope zoom.</td></tr>
   <tr><td>Fontaine's FOV Fix</td><td>4.0.1</td><td>High FOV without broken optics/zoom.</td></tr>
   <tr><td>Dynamic Maps</td><td>1.1.3</td><td>Interactive in-raid map with you, squad, extracts, quests.</td></tr>
@@ -239,11 +240,12 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>Borkel's Realistic NVG</td><td>2.1.1</td><td>Night vision modeled on the real thing, customizable in F12.</td></tr>
   <tr><td>Color Converter API</td><td>1.1.1</td><td>Enables the custom rarity colors client-side (required plumbing).</td></tr>
 </table>
-<p class="small">Plus, installed separately by you during setup: the Fika client plugin 2.3.3 (via Fika-Installer).</p>
+<p class="small">Plus, installed separately by you during setup: the Fika client plugin 2.3.3 (via Fika-Installer).
+The pack also drops in our tuned SAIN difficulty preset (auto-selected) so your AI settings match the server's exactly.</p>
 
 <footer>
   HOMESTEAD · SPT 4.0.13 + Fika · dedicated hardware, 24/7 · profiles backed up daily<br>
-  Mod pack: <a href="https://drive.google.com/file/d/1kFsZrPNF-kXM9fZ47CCtWaAIhXwRTbil/view?usp=sharing">download here</a> ·
+  Mod pack: <a href="https://drive.google.com/file/d/1PbRNhb68JIUZN6k99DiWr85N1Jc9Fyzj/view?usp=sharing">download here</a> ·
   Server address comes with this invite — ask me, and don't post it publicly.
 </footer>
 
