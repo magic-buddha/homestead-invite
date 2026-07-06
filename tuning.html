@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HOMESTEAD — Tuning &amp; Settings Guide</title>
+<style>
+  :root{
+    --bg:#101311; --panel:#181c19; --panel2:#1f2420; --line:#2c332d;
+    --text:#d6d2c4; --dim:#8f8b7e; --tan:#c7b299; --green:#9bb27a; --red:#c96a5a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:0 16px 80px}
+  .wrap{max-width:780px;margin:0 auto}
+  header{padding:64px 0 28px;text-align:center;border-bottom:1px solid var(--line)}
+  header .kicker{color:var(--green);letter-spacing:.25em;font-size:12px;text-transform:uppercase}
+  h1{font-size:38px;letter-spacing:.06em;color:var(--tan);margin:10px 0 6px;font-weight:800}
+  header p.sub{color:var(--dim);font-size:17px;max-width:600px;margin:0 auto}
+  h2{color:var(--tan);font-size:22px;margin:48px 0 14px;letter-spacing:.03em}
+  h2 .num{color:var(--green);font-size:14px;vertical-align:middle;margin-right:8px}
+  h3{color:var(--green);font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:22px 0 4px}
+  p{margin:10px 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}
+  th{color:var(--dim);text-align:left;font-weight:600;text-transform:uppercase;font-size:11.5px;letter-spacing:.08em;padding:8px 10px;border-bottom:1px solid var(--line)}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{color:var(--tan);white-space:nowrap;font-weight:600}
+  .key{background:var(--panel2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 7px;font:13px ui-monospace,Consolas,monospace;color:var(--text);white-space:nowrap}
+  .note{border-left:3px solid var(--green);background:var(--panel);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+  .warn{border-left-color:var(--red)}
+  a{color:var(--green)}
+  .small{font-size:13.5px;color:var(--dim)}
+  ul{margin:8px 0 8px 22px}
+  li{padding:3px 0}
+  footer{margin-top:56px;text-align:center;color:var(--dim);font-size:13px;border-top:1px solid var(--line);padding-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">One stop shop</div>
+  <h1>TUNING &amp; SETTINGS</h1>
+  <p class="sub">Part 1 is the server owner's manual — the main dials that shape difficulty, bots, and loot.
+  Part 2 is for everyone — make the game look good and run well on your PC.</p>
+</header>
+
+<h2><span class="num">01</span>Server tuning — the six main dials</h2>
+<p class="small">Admin-only. WebConfig links work from the home LAN only (accept the self-signed certificate warning).</p>
+<table>
+  <tr><th>Dial</th><th>Tool &amp; where</th><th>What it controls</th></tr>
+  <tr><td>How MANY bots</td><td><b>ABPS WebConfig</b> — <span class="key">https://192.168.4.25:6969/botplacementsystem</span></td><td>Starting PMCs per map, wave sizes/timing, max alive at once, boss spawn odds. The #1 lever for "raids feel empty / too crowded" and for headless CPU load.</td></tr>
+  <tr><td>How GEARED bots are</td><td><b>APBS WebConfig</b> — <span class="key">https://192.168.4.25:6969/progressivebotsystem</span></td><td>Bot equipment tiers and progression speed. Gear already scales with the squad's average level automatically.</td></tr>
+  <tr><td>How well bots FIGHT</td><td><b>SAIN</b> — F12 on the gaming PC, preset <span class="key">homesteadserver</span></td><td>Aim speed, accuracy, reaction time, hearing/vision. Global difficulty sliders live under Difficulty. <b>Leave Personality → Assignment alone</b> — those chances are tuned for ORBIT.</td></tr>
+  <tr><td>How bots BEHAVE</td><td><b>ORBIT</b> — F12 on the gaming PC</td><td>Bot looting thresholds, scav loot chance, roaming, extraction pacing (when bots leave the raid).</td></tr>
+  <tr><td>LOOT &amp; economy</td><td><b>SVM via Greed.exe</b> on the gaming PC (preset <span class="key">homesteadsetup</span>)</td><td>Loose/container loot multipliers, flea unlock level, insurance, hideout speed, trader stock, extracts, raid time. The whole economy in one preset file.</td></tr>
+  <tr><td>CO-OP rules</td><td><span class="key">fika.jsonc</span> on the server box</td><td>Revive system (currently: 3 revives, 5-min bleedout, no items needed), friendly fire, shared quest progression, bot level scaling.</td></tr>
+</table>
+
+<div class="card">
+<h3 style="margin-top:0">How changes reach the server</h3>
+<ul>
+  <li><b>SAIN / ORBIT (F12 mods):</b> tune on the gaming PC, close the game, then copy the changed files to the headless — SAIN: the whole <span class="key">BepInEx\plugins\SAIN\Presets\homesteadserver</span> folder; ORBIT: <span class="key">BepInEx\config\com.chazut.orbit.cfg</span>. Then restart the headless container.</li>
+  <li><b>SVM:</b> save the preset in Greed, drop the JSON in the server's <span class="key">incoming/</span> folder, install server-side, restart the server container.</li>
+  <li><b>ABPS / APBS WebConfig:</b> applies from the browser — no file copying.</li>
+  <li>Rule of thumb: server-mod change → restart <span class="key">fika-server</span>; headless plugin/config change → restart <span class="key">fika-headless</span>.</li>
+</ul>
+</div>
+
+<div class="note warn"><b>Never-break rules:</b> versions are pinned as a set (SPT 4.0.13 / Fika 2.3.4 / Headless 1.4.14) — never update one layer alone. Never reinstall Questing Bots or Looting Bots (they fight ORBIT). Never add AI-limiter/bot-culling mods (they freeze ORBIT squads). Keep raid times near vanilla. One change at a time, then a test raid.</div>
+
+<div class="note">Health checks during a raid: press <span class="key">~</span> → type <span class="key">debug t</span> — keep <b>Server FPS ≥ 30</b>. If it dips, lower ABPS bot counts before blaming anything else.</div>
+
+<h2><span class="num">02</span>Player settings — performance vs. looks</h2>
+<p>Tarkov is CPU-hungry and mod-heavy. These are the dials that matter, in order of impact.
+Everything else is taste.</p>
+
+<h3>If you need more FPS (biggest wins first)</h3>
+<table>
+  <tr><th>Setting</th><th>Where</th><th>Do this</th></tr>
+  <tr><td>DLSS / FSR</td><td>Graphics</td><td>RTX card → <b>DLSS Quality</b>. Otherwise FSR 2.2 Quality. Single biggest free win.</td></tr>
+  <tr><td>Shadows</td><td>Graphics</td><td>Medium. Low looks bad; Ultra eats frames. Grass shadows <b>OFF</b>.</td></tr>
+  <tr><td>Overall visibility</td><td>Graphics</td><td>1500–2000 m. Only snipers on Woods/Lighthouse benefit from more.</td></tr>
+  <tr><td>Object LOD</td><td>Graphics</td><td>2.5 — the sweet spot. Higher is mostly CPU cost.</td></tr>
+  <tr><td>SSR (reflections)</td><td>Graphics</td><td><b>OFF</b>. Expensive, barely visible.</td></tr>
+  <tr><td>Auto RAM cleaner + Only use physical cores</td><td>Game tab</td><td>Both <b>ON</b>.</td></tr>
+</table>
+
+<h3>If you want it prettier</h3>
+<table>
+  <tr><th>Setting</th><th>Where</th><th>Do this</th></tr>
+  <tr><td>Anti-aliasing</td><td>Graphics</td><td>TAA High (DLSS replaces it if enabled).</td></tr>
+  <tr><td>Textures</td><td>Graphics</td><td>High if you have 8 GB+ VRAM.</td></tr>
+  <tr><td>HBAO</td><td>Graphics</td><td>High — but our <b>AO Replacer</b> mod (GTAO) already improves this; try its F12 presets first.</td></tr>
+  <tr><td>Sharpness</td><td>Graphics</td><td>0.4–0.7. Above that it gets crunchy.</td></tr>
+  <tr><td>"Washed out" look?</td><td>F12 → Smajlec's Lights</td><td>This mod recolors the game — if it's too bright/flat for you, lower its intensity or switch its preset. Tune this <i>before</i> touching PostFX.</td></tr>
+  <tr><td>PostFX</td><td>PostFX tab</td><td>Start OFF. If you want punch: Contrast +5–10, Color grading to taste, leave Brightness alone. PostFX costs a few FPS.</td></tr>
+</table>
+
+<h3>Game &amp; controls worth setting once</h3>
+<ul>
+  <li><b>FOV 65–75</b> — our FOV Fix mod keeps scopes correct at high FOV.</li>
+  <li><b>Head bobbing 0.2</b> — motion-sickness saver, no downside.</li>
+  <li>Rebind in F12 to keys you'll actually press: <b>Dynamic Maps</b> peek, <b>Amands' Sense</b> pulse. Fika defaults: ping <span class="key">;</span> · extract <span class="key">F8</span> · give up when downed <span class="key">End</span>.</li>
+  <li><b>Borkel's NVG</b> (F12): raise Gain a touch if night raids feel too dark; add Noise for the vibe.</li>
+</ul>
+
+<div class="note">All F12 mod settings are <b>personal</b> — they only affect your game. Tune freely; you can't break the server from there. The one exception you'll notice: a couple of UI Fixes gameplay toggles are enforced by the raid host for fairness.</div>
+
+<footer>
+  HOMESTEAD · <a href="index.html">← back to the invite</a><br>
+  Owner's ops reference lives on the server box: <span class="key">CLAUDE.md</span> · <span class="key">docs/modding.md</span>
+</footer>
+
+</div>
+</body>
+</html>
