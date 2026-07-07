@@ -175,11 +175,12 @@ host presses Start. Kill XP is shared across the group, so nobody falls behind.<
   <li><b>Install live EFT</b> — official BSG launcher or Steam, both work fine. Let it download fully. (Files get copied; you won't play live.)</li>
   <li><b>Install SPT.</b> Get the installer at <a href="https://forge.sp-tarkov.com/installer">forge.sp-tarkov.com/installer</a>, put it in a <b>new empty folder</b> (e.g. <span class="key">C:\SPT\</span>), run it. When it finishes, start <span class="key">SPT.Server.exe</span> first (a console window — leave it open), <i>then</i> run <span class="key">SPT.Launcher.exe</span>, make a temp profile, and start one solo raid to confirm it works. (The local server console is only needed for this test — when playing on Homestead you just use the launcher.) <b>Version must be SPT&nbsp;4.0.13</b> — if an installer offers newer, stop and ask me.</li>
   <li><b>Install Fika</b> (the co-op layer). Download <span class="key">Fika-Installer.exe</span> from <a href="https://github.com/project-fika/Fika-Installer/releases">github.com/project-fika/Fika-Installer</a>, put it in your SPT folder, run → <b>Install Fika</b>. The main menu should then show <b>FIKA 2.3.x | SPT 4.0.13</b> bottom-left.</li>
-  <li><b>Drop in the mod pack.</b> Download <a href="https://drive.google.com/file/d/1PbRNhb68JIUZN6k99DiWr85N1Jc9Fyzj/view?usp=sharing"><span class="key">homestead-modpack-2026-07-06.zip</span></a> (~350&nbsp;MB) and extract it into your SPT folder so <span class="key">BepInEx</span>, <span class="key">EscapeFromTarkov_Data</span> and <span class="key">user</span> merge. Say yes to all merges. <b>Never add/update mods on your own</b> — versions are pinned to the server.</li>
+  <li><b>Drop in the mod pack.</b> Download <a href="https://drive.google.com/file/d/1PbRNhb68JIUZN6k99DiWr85N1Jc9Fyzj/view?usp=sharing"><span class="key">homestead-modpack-2026-07-07.zip</span></a> (~8.5&nbsp;GB — it's big because it ships all the custom item art pre-loaded, so your first raid isn't a multi-hour download) and extract it into your SPT folder so <span class="key">BepInEx</span>, <span class="key">EscapeFromTarkov_Data</span> and <span class="key">SPT</span> merge. Say yes to all merges. <b>Never add/update mods on your own</b> — versions are pinned to the server. <b>Everyone must be on this same pack before we raid</b> (missing WTT items = instant connect error for that person).</li>
   <li><b>Connect.</b> SPT.Launcher → Settings (gear) → Server URL → the address I send you (starts with <span class="key">https://</span>). Create your character through the launcher — <b>pick the "SPT Zero to Hero" edition</b> when asked: you start with a knife and nothing else. Trust us on this one — the server is tuned generous (see the tuning section), so the broke-scavenger arc at the start is the best part of the game. Then launch and play. (Shared squad XP is already enforced server-side — nothing to configure.)</li>
 </ol>
-<div class="note warn"><b>Your first raid will load slowly</b> — it can sit at a low percentage for several minutes
-while ~120&nbsp;MB of custom assets download from the server (one time only). Don't alt-tab, don't force quit. It will move.</div>
+<div class="note"><b>Good news on first-raid loading:</b> the mod pack already ships every custom item's
+assets pre-cached, so you skip the old multi-hour "downloading assets from server" wait. If a raid ever
+does sit briefly at a low % (a rare item that slipped through), just be patient — don't alt-tab or force quit.</div>
 
 <h2><span class="num">09</span>If something breaks</h2>
 <div class="card">
@@ -199,7 +200,7 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
 <table>
   <tr><th>Mod</th><th>Version</th><th>What it does</th></tr>
   <tr><td>SPT (Single Player Tarkov)</td><td>4.0.13</td><td>The foundation — the whole offline Tarkov backend: traders, flea, quests, hideout, profiles.</td></tr>
-  <tr><td>Fika (server)</td><td>2.3.2</td><td>The co-op layer — lets us all play in the same raid, plus the 24/7 headless raid host.</td></tr>
+  <tr><td>Fika (server)</td><td>2.3.4</td><td>The co-op layer — lets us all play in the same raid, plus the 24/7 headless raid host.</td></tr>
   <tr><td>SAIN (server half)</td><td>4.4.3</td><td>Server side of the combat AI overhaul; holds our custom difficulty preset.</td></tr>
   <tr><td>ABPS (server half)</td><td>2.0.19</td><td>The spawn director — starting PMCs, live-like waves, boss odds; keeps raids full and different every time.</td></tr>
   <tr><td>Expanded Task Text</td><td>2.0.3</td><td>Injects guide-level info into quest descriptions (items to bring, locations, keys).</td></tr>
@@ -214,6 +215,16 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>MoreCheckmarks (backend)</td><td>2.2.0</td><td>Data feed for the item checkmark icons.</td></tr>
   <tr><td>UI Fixes (server half)</td><td>5.3.9</td><td>Server support for the inventory QoL features.</td></tr>
   <tr><td>Dynamic Maps (server half)</td><td>1.1.3</td><td>Server support for the in-raid map.</td></tr>
+  <tr><td>WTT CommonLib (server half)</td><td>2.0.20</td><td>Backbone the WTT item mods below all depend on.</td></tr>
+  <tr><td>WTT Content Backport</td><td>1.0.7</td><td>Adds backported items, gear and achievements to the game.</td></tr>
+  <tr><td>WTT Armory</td><td>2.0.5</td><td>A large pack of extra weapons and attachments (buyable from traders / found in loot — bots don't spawn with them).</td></tr>
+  <tr><td>WTT Pack 'n' Strap (server half)</td><td>2.0.4</td><td>Adds belts/fanny packs (armband slot) and extra storage cases. Belts drop on death.</td></tr>
+  <tr><td>The Blacklist</td><td>3.0.1</td><td>Reworks the flea market: BSG's flea blacklist is lifted (meta ammo/items become buyable) and their prices rebalanced, with faster sales. This is where flea availability &amp; pricing is controlled.</td></tr>
+  <tr><td>Bosses Have Lega Medals</td><td>2.0.1</td><td>Bosses can drop LEDX-tier Lega medals — a little extra boss-hunting payoff.</td></tr>
+  <tr><td>Bosses Have GP Coins</td><td>1.0.0</td><td>Bosses can drop GP coins.</td></tr>
+  <tr><td>Bright Lasers</td><td>2.0.0</td><td>Makes weapon laser beams brighter and more visible.</td></tr>
+  <tr><td>Hideout In Progress (server half)</td><td>2.0.2</td><td>Server support for showing hideout crafts/constructions in progress.</td></tr>
+  <tr><td>Raid Review</td><td>1.3.0</td><td>Records every raid to a browsable replay site (owner-only, on the home LAN). Keeps the last 30 raids.</td></tr>
 </table>
 
 <h3 style="color:var(--green);font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:22px 0 4px">In your mod pack (client side)</h3>
@@ -240,8 +251,25 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>HollywoodFX</td><td>1.8.4</td><td>Rebuilt impacts, explosions, and effects — cinematic firefights.</td></tr>
   <tr><td>Borkel's Realistic NVG</td><td>2.1.1</td><td>Night vision modeled on the real thing, customizable in F12.</td></tr>
   <tr><td>Color Converter API</td><td>1.1.1</td><td>Enables the custom rarity colors client-side (required plumbing).</td></tr>
+  <tr><td>WTT CommonLib (client)</td><td>2.0.20</td><td>Client backbone for all the WTT item mods (required — a missing install = hard connect error).</td></tr>
+  <tr><td>WTT Content Backport (client)</td><td>1.0.7</td><td>Client half of the backported items/gear/achievements.</td></tr>
+  <tr><td>WTT Armory (client)</td><td>2.0.5</td><td>Client half of the extra weapons pack.</td></tr>
+  <tr><td>WTT Pack 'n' Strap (client)</td><td>2.0.4</td><td>Client half of the belts/storage. Belts sit in the armband slot and drop on death.</td></tr>
+  <tr><td>Use Items From Anywhere</td><td>1.3.2</td><td>Pack 'n' Strap helper — use items regardless of where they sit.</td></tr>
+  <tr><td>Menu Overhaul</td><td>1.2.2</td><td>Cleaner, reworked main menu.</td></tr>
+  <tr><td>Hands Are Not Busy</td><td>1.6.0</td><td>Use meds/food while sprinting or reloading.</td></tr>
+  <tr><td>Use Loose Loot</td><td>1.5.1</td><td>Use items straight off the ground without picking them up first.</td></tr>
+  <tr><td>Search Open Containers</td><td>1.4.0</td><td>Keep searching a container after opening it.</td></tr>
+  <tr><td>Continuous Load Ammo</td><td>1.1.5</td><td>Hold to load a whole magazine round-by-round.</td></tr>
+  <tr><td>AutoDeposit</td><td>5.0.0</td><td>One key deposits items into the right hideout stash.</td></tr>
+  <tr><td>Modding Stats Helper</td><td>1.1.1</td><td>Extra item stat readouts.</td></tr>
+  <tr><td>Vertical Hideout</td><td>1.0.0</td><td>Taller/scrollable hideout view.</td></tr>
+  <tr><td>Hideout In Progress</td><td>2.0.2</td><td>Shows which hideout crafts/constructions are running.</td></tr>
+  <tr><td>Task Automation</td><td>1.3.1</td><td>Auto-hands-in finished quests. (Keep "Auto Find And Obtain"/"Auto Find In Raid" OFF — see tuning guide.)</td></tr>
+  <tr><td>Raid Review (recorder)</td><td>1.3.0</td><td>Records raids for the server's replay site.</td></tr>
 </table>
-<p class="small">Plus, installed separately by you during setup: the Fika client plugin 2.3.3 (via Fika-Installer).
+<p class="small">Optional extras in the pack's <span class="key">optional\</span> folder (personal, not required): CloudSix (volumetric clouds, GPU-heavy) and Increase Look Direction.</p>
+<p class="small">Plus, installed separately by you during setup: the Fika client plugin 2.3.4 (via Fika-Installer).
 The pack also drops in our tuned SAIN difficulty preset (auto-selected) so your AI settings match the server's exactly.</p>
 
 <footer>

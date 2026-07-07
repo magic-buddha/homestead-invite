@@ -57,6 +57,22 @@
   <tr><td>CO-OP rules</td><td><span class="key">fika.jsonc</span> on the server box</td><td>Revive system (currently: 3 revives, 5-min bleedout, no items needed), friendly fire, shared quest progression, bot level scaling.</td></tr>
 </table>
 
+<h3>More server dials (added 2026-07-07)</h3>
+<table>
+  <tr><th>Dial</th><th>Tool &amp; where</th><th>What it controls</th></tr>
+  <tr><td>FLEA blacklist &amp; prices</td><td><b>The Blacklist</b> — <span class="key">server/SPT/user/mods/platinum-theblacklist/Config/config.jsonc</span></td><td>The flea market's blacklist + blacklisted-item pricing now live HERE (currently: BSG blacklist disabled so meta ammo/items are buyable, prices rebalanced, faster sales). This is the ONE place flea availability/pricing is set — SVM's flea section is left alone so the two don't fight. Restart <span class="key">fika-server</span> after edits.</td></tr>
+  <tr><td>Belt drop-on-death</td><td><b>Pack 'n' Strap</b> — <span class="key">server/SPT/user/mods/WTT-PackNStrap/config/config.jsonc</span></td><td>The belts/fanny packs occupy the armband slot. <span class="key">loseArmbandOnDeath</span> is currently <b>true</b> = they (and their contents) DROP and are lootable on death, so they're not a free extra secure container. Set false to keep them safe on death.</td></tr>
+  <tr><td>Raid replays</td><td><b>Raid Review</b> — web UI + <span class="key">server/SPT/user/mods/RaidReview/config/config.json</span></td><td>Records every headless raid (positions, kills, loot, ballistics) to a browsable replay site. Auto-keeps the last 30 raids. See the note below for the URL.</td></tr>
+</table>
+
+<div class="note warn"><b>Raid Review web UI — LAN / Tailscale only.</b> Browse to
+<span class="key">http://192.168.4.25:7829</span> on the home LAN, or
+<span class="key">http://100.114.234.119:7829</span> over Tailscale. These ports
+(7828/7829) are <b>deliberately NOT forwarded on the router</b> — the replay site has
+no real auth, so never port-forward it or share the address. (Under the hood the mod
+binds localhost only; two tiny <span class="key">socat</span> sidecars in
+docker-compose re-expose it on the LAN — leave them running.)</div>
+
 <div class="card">
 <h3 style="margin-top:0">How changes reach the server</h3>
 <ul>
@@ -117,6 +133,8 @@ Everything else is taste.</p>
   <tr><td>UI Fixes</td><td>Mostly great out of the box. Favorites to know exist: swap-in-place drag, autostack on transfer, mousewheel scope zoom, load-ammo-preset. (Two gameplay toggles are host-enforced in raid — that's intended.)</td></tr>
   <tr><td>HollywoodFX</td><td>If FPS dips during big firefights, lower its effect intensity/density — it's the priciest visual mod in heavy combat.</td></tr>
   <tr><td>Quest Tracker</td><td>Bind the overlay toggle; set auto-hide so it's not permanently on screen.</td></tr>
+  <tr><td>Task Automation</td><td><b>Leave "Auto Find And Obtain" and "Auto Find In Raid" OFF</b> — they cause stash lag on SPT+Fika. Auto-hand-in of finished quests is fine to leave on.</td></tr>
+  <tr><td>Menu Overhaul / Vertical Hideout / Hideout In Progress</td><td>New cosmetic/QoL menu + hideout mods — all default-fine, tweak in F12 to taste.</td></tr>
 </table>
 
 <div class="note">All F12 mod settings are <b>personal</b> — they only affect your game. Tune freely; you can't break the server from there. The one exception you'll notice: a couple of UI Fixes gameplay toggles are enforced by the raid host for fairness.</div>
