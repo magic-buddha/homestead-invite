@@ -142,6 +142,25 @@ dialed down here. The danger stays in the raid; the chores don't follow you home
 </ul>
 </div>
 
+<h3 style="color:var(--green);font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:26px 0 4px">Quests you'll actually finish</h3>
+<p>This is the change we're proudest of. In live Tarkov the quests that get abandoned aren't the <i>long</i>
+ones — they're the <b>blocking</b> ones. "Kill 30 with an AK-74" means stopping what you're doing, going
+shopping, and running a loadout you didn't want. So we cut the blocking, not the game.</p>
+<div class="card">
+<ul style="list-style:none">
+  <li style="padding:6px 0">🔫 <b>No more "buy this exact gun" quests.</b> Where a quest demanded one specific weapon — <i>Provocation</i>'s ASh-12, <i>The Good Times</i>' gold TT — the restriction is gone. Any weapon counts.</li>
+  <li style="padding:6px 0">🎯 <b>Weapon <i>classes</i> stay.</b> The Tarkov Shooter still wants a bolt-action, Gendarmerie still wants a rifle, Gun Connoisseur still wants each calibre. Those read as "use a sniper rifle", not "own this SKU" — and they're the character of the questline, so they stayed.</li>
+  <li style="padding:6px 0">🥷 <b>No costume requirements.</b> Killing 10 PMCs while wearing a specific party hat, or hunting scavs in particular New Year masks, is not a game mechanic. Removed.</li>
+  <li style="padding:6px 0">📏 <b>No forced headshots, sniper ranges, night windows or iron-sights-only.</b> Shoot people how you like, when you like. (One quest wanted 10 kills at <b>350&nbsp;m</b>. It does not any more.)</li>
+  <li style="padding:6px 0">➗ <b>Kill counts halved across the board.</b> A Shooter Born in Heaven drops from 40 headshots to 16 kills; Drip-Out from 200 to 100. Still a real task, no longer a second job.</li>
+  <li style="padding:6px 0">⏳ <b>No Gunsmith waiting timers</b>, and hidden objectives are revealed up front — no more failing a step you couldn't see.</li>
+  <li style="padding:6px 0">🗃️ <b>Collector is reachable.</b> Vanilla gates it behind <b>136</b> completed quests. Here it's the newer, saner set: loyalty 4 with seven traders, Fence rep 3, level 40, and four quests.</li>
+</ul>
+</div>
+<div class="note">The idea is that you stop skipping and just play. Take your time, do them all —
+none of them will send you shopping first. <b>Skipper</b> (below) is still installed if a quest
+genuinely isn't for you, but you should need it a lot less.</div>
+
 <h2><span class="num">06</span>Quality of life (your in-game toolkit)</h2>
 <div class="note">Press <span class="key">F12</span> at the main menu or in raid — that's the settings panel for
 <b>all</b> client mods. Every hotkey below can be rebound there. Press <span class="key">Esc</span> to close it.</div>
@@ -176,7 +195,7 @@ host presses Start. Kill XP is shared across the group, so nobody falls behind.<
   <li><b>Install SPT.</b> Get the installer at <a href="https://forge.sp-tarkov.com/installer">forge.sp-tarkov.com/installer</a>, put it in a <b>new empty folder</b> (e.g. <span class="key">C:\SPT\</span>), run it. When it finishes, start <span class="key">SPT.Server.exe</span> first (a console window — leave it open), <i>then</i> run <span class="key">SPT.Launcher.exe</span>, make a temp profile, and start one solo raid to confirm it works. (The local server console is only needed for this test — when playing on Homestead you just use the launcher.) <b>Version must be SPT&nbsp;4.0.13</b> — if an installer offers newer, stop and ask me.</li>
   <li><b>Install Fika</b> (the co-op layer). Download <span class="key">Fika-Installer.exe</span> from <a href="https://github.com/project-fika/Fika-Installer/releases">github.com/project-fika/Fika-Installer</a>, put it in your SPT folder, run → <b>Install Fika</b>. The main menu should then show <b>FIKA 2.3.x | SPT 4.0.13</b> bottom-left.</li>
   <li><b>Drop in the mod pack.</b> Download <a href="https://drive.google.com/file/d/1GQERpJK_OxC3RKbaUMR-qkAQ2F6mNOsI/view?usp=sharing"><span class="key">homestead-modpack-2026-07-07.zip</span></a> (~9.6&nbsp;GB — it's big because it ships all the custom item art pre-loaded, so your first raid isn't a multi-hour download) and extract it into your SPT folder so <span class="key">BepInEx</span>, <span class="key">EscapeFromTarkov_Data</span> and <span class="key">SPT</span> merge. Say yes to all merges. <b>Never add/update mods on your own</b> — versions are pinned to the server. <b>Everyone must be on this same pack before we raid</b> (missing WTT items = instant connect error for that person).</li>
-  <li><b>Connect.</b> SPT.Launcher → Settings (gear) → Server URL → the address I send you (starts with <span class="key">https://</span>). Create your character through the launcher — <b>pick the "SPT Zero to Hero" edition</b> when asked: you start with a knife and nothing else. Trust us on this one — the server is tuned generous (see the tuning section), so the broke-scavenger arc at the start is the best part of the game. Then launch and play. (Shared squad XP is already enforced server-side — nothing to configure.)</li>
+  <li><b>Connect.</b> SPT.Launcher → Settings (gear) → Server URL → the address I send you (starts with <span class="key">https://</span>). Create your character through the launcher — <b>pick the "SPT Zero to Hero" edition</b> when asked: you start with a knife and nothing else. Trust us on this one — the server is tuned generous (see the tuning section), so the broke-scavenger arc at the start is the best part of the game. Then launch and play. One last thing in-game: press <span class="key">F12</span> in the main menu → <b>Fika.Core</b> → <b>Coop | Quest Sharing</b> → tick <b>Shared Kill Experience</b> and <b>Shared Boss Experience</b> (off by default) so squad kill XP is shared with you.</li>
 </ol>
 <div class="note"><b>Good news on first-raid loading:</b> the mod pack already ships every custom item's
 assets pre-cached, so you skip the old multi-hour "downloading assets from server" wait. If a raid ever
