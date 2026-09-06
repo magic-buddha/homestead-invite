@@ -174,8 +174,8 @@ genuinely isn't for you, but you should need it a lot less.</div>
   <tr><td>UI Fixes</td><td>Dozens of inventory fixes: swap items in place, autostack, load ammo presets, mousewheel scope zoom…</td><td>automatic</td></tr>
   <tr><td>Continuous Healing + Autocancel</td><td>Meds automatically continue to the next limb and stop when full — no wasted charges, no menu fiddling mid-fight.</td><td>automatic</td></tr>
   <tr><td>Fontaine's FOV Fix</td><td>Play at high FOV without broken scope zoom.</td><td>automatic</td></tr>
-  <tr><td>HollywoodFX</td><td>Explosions, impacts and tracers rebuilt — firefights look like a movie.</td><td>automatic</td></tr>
-  <tr><td>Smajlec's Lights + AO Replacer</td><td>Better color grading and lighting than vanilla's grey-brown soup.</td><td>toggle key in F12</td></tr>
+  <tr><td>HollywoodFX 2.0</td><td>Explosions, impacts, tracers, smoke and gore rebuilt from scratch — firefights look like a movie.</td><td>automatic</td></tr>
+  <tr><td>Amands's Graphics + AO Replacer + Brighter Interiors</td><td>A proper lighting overhaul instead of vanilla's grey-brown soup: tone mapping, bloom, fog and depth of field, accurate ambient occlusion, and interiors you can actually see into.</td><td><span class="key">Insert</span> toggles Amands; all tunable in F12</td></tr>
   <tr><td>Borkel's NVG</td><td>Night vision that looks like real NVGs. Night raids are a vibe.</td><td>customize in F12</td></tr>
   <tr><td>Level Endurance &amp; Strength</td><td>Movement skills level even mildly overweight — less grief for loot goblins.</td><td>automatic</td></tr>
 </table>
@@ -192,9 +192,9 @@ host presses Start. Kill XP is shared across the group, so nobody falls behind.<
 <p><b>Requirements:</b> Windows, a legit EFT account (any edition), ~70&nbsp;GB free disk.</p>
 <ol class="steps">
   <li><b>Install live EFT</b> — official BSG launcher or Steam, both work fine. Let it download fully. (Files get copied; you won't play live.)</li>
-  <li><b>Install SPT.</b> Get the installer at <a href="https://forge.sp-tarkov.com/installer">forge.sp-tarkov.com/installer</a>, put it in a <b>new empty folder</b> (e.g. <span class="key">C:\SPT\</span>), run it. When it finishes, start <span class="key">SPT.Server.exe</span> first (a console window — leave it open), <i>then</i> run <span class="key">SPT.Launcher.exe</span>, make a temp profile, and start one solo raid to confirm it works. (The local server console is only needed for this test — when playing on Homestead you just use the launcher.) <b>Version must be SPT&nbsp;4.0.13</b> — if an installer offers newer, stop and ask me.</li>
+  <li><b>Install SPT.</b> Get the installer at <a href="https://sp-mod.com/installer">sp-mod.com/installer</a>, put it in a <b>new empty folder</b> (e.g. <span class="key">C:\SPT\</span>), run it. When it finishes, start <span class="key">SPT.Server.exe</span> first (a console window — leave it open), <i>then</i> run <span class="key">SPT.Launcher.exe</span>, make a temp profile, and start one solo raid to confirm it works. (The local server console is only needed for this test — when playing on Homestead you just use the launcher.) <b>Version must be SPT&nbsp;4.0.13</b> — if an installer offers newer, stop and ask me.</li>
   <li><b>Install Fika</b> (the co-op layer). Download <span class="key">Fika-Installer.exe</span> from <a href="https://github.com/project-fika/Fika-Installer/releases">github.com/project-fika/Fika-Installer</a>, put it in your SPT folder, run → <b>Install Fika</b>. The main menu should then show <b>FIKA 2.3.x | SPT 4.0.13</b> bottom-left.</li>
-  <li><b>Drop in the mod pack.</b> Download <a href="https://drive.google.com/file/d/1GQERpJK_OxC3RKbaUMR-qkAQ2F6mNOsI/view?usp=sharing"><span class="key">homestead-modpack-2026-07-07.zip</span></a> (~9.6&nbsp;GB — it's big because it ships all the custom item art pre-loaded, so your first raid isn't a multi-hour download) and extract it into your SPT folder so <span class="key">BepInEx</span>, <span class="key">EscapeFromTarkov_Data</span> and <span class="key">SPT</span> merge. Say yes to all merges. <b>Never add/update mods on your own</b> — versions are pinned to the server. <b>Everyone must be on this same pack before we raid</b> (missing WTT items = instant connect error for that person).</li>
+  <li><b>Drop in the mod pack.</b> Download <a href="__PACK_URL__"><span class="key">homestead-modpack-2026-09-06.zip</span></a> (~12&nbsp;GB — it's big because it ships all the custom item art pre-loaded, so your first raid isn't a multi-hour download) and extract it into your SPT folder so <span class="key">BepInEx</span>, <span class="key">EscapeFromTarkov_Data</span> and <span class="key">SPT</span> merge. Say yes to all merges. <b>If you are updating from the 07-07 pack, first delete <span class="key">BepInEx\plugins\SmajlecLights.dll</span></b> — extracting cannot remove a file the new pack no longer contains, and leaving it fights the new graphics mod. <b>Never add/update mods on your own</b> — versions are pinned to the server. <b>Everyone must be on this same pack before we raid</b> (missing WTT items = instant connect error for that person).</li>
   <li><b>Connect.</b> SPT.Launcher → Settings (gear) → Server URL → the address I send you (starts with <span class="key">https://</span>). Create your character through the launcher — <b>pick the "SPT Zero to Hero" edition</b> when asked: you start with a knife and nothing else. Trust us on this one — the server is tuned generous (see the tuning section), so the broke-scavenger arc at the start is the best part of the game. Then launch and play. One last thing in-game: press <span class="key">F12</span> in the main menu → <b>Fika.Core</b> → <b>Coop | Quest Sharing</b> → tick <b>Shared Kill Experience</b> and <b>Shared Boss Experience</b> (off by default) so squad kill XP is shared with you.</li>
 </ol>
 <div class="note"><b>Good news on first-raid loading:</b> the mod pack already ships every custom item's
@@ -223,27 +223,27 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>SAIN (server half)</td><td>4.4.3</td><td>Server side of the combat AI overhaul; holds our custom difficulty preset.</td></tr>
   <tr><td>ABPS (server half)</td><td>2.0.19</td><td>The spawn director — starting PMCs, live-like waves, boss odds; keeps raids full and different every time.</td></tr>
   <tr><td>Expanded Task Text</td><td>2.0.3</td><td>Injects guide-level info into quest descriptions (items to bring, locations, keys).</td></tr>
-  <tr><td>SVM (Server Value Modifier)</td><td>2.1.2</td><td>Our server tuning: loot amounts up, all containers spawn, boss chances, insurance/heal tweaks, bigger secure containers.</td></tr>
+  <tr><td>SVM (Server Value Modifier)</td><td>2.1.3</td><td>Our server tuning: loot amounts up, all containers spawn, boss chances, insurance/heal tweaks, bigger secure containers.</td></tr>
   <tr><td>APBS</td><td>2.2.1</td><td>Progressive bot gear — enemies' equipment tiers up as our group levels.</td></tr>
-  <tr><td>ODT's Item Info</td><td>2.0.14</td><td>The rarity color system + prices/best-trader in every item description + ammo stats in names.</td></tr>
+  <tr><td>ODT's Item Info</td><td>2.0.15</td><td>The rarity color system + prices/best-trader in every item description + ammo stats in names.</td></tr>
   <tr><td>All The Clothes</td><td>3.1.0</td><td>Every clothing option purchasable from Ragman.</td></tr>
   <tr><td>KeyHunter</td><td>2.0.1</td><td>Sane key spawn rates in jackets, duffles, and scav pockets.</td></tr>
-  <tr><td>sgtlaggy's Quest Tweaks</td><td>4.6.0</td><td>Softens the most annoying quest requirements (times, conditions).</td></tr>
+  <tr><td>sgtlaggy's Quest Tweaks</td><td>4.7.0</td><td>The quest tuning described in section 05 — removes weapon/gear/range/headshot/night locks, halves kill counts, drops Gunsmith timers, reveals hidden objectives, backports Collector's prerequisites.</td></tr>
   <tr><td>Ref Friendly Quests</td><td>2.0.3</td><td>Makes the arena-locked Ref quest line completable in normal raids.</td></tr>
-  <tr><td>Borkel's RNVG (server half)</td><td>2.1.1</td><td>Serves the night-vision assets.</td></tr>
+  <tr><td>Borkel's RNVG (server half)</td><td>3.0.2</td><td>Serves the night-vision assets.</td></tr>
   <tr><td>MoreCheckmarks (backend)</td><td>2.2.0</td><td>Data feed for the item checkmark icons.</td></tr>
-  <tr><td>UI Fixes (server half)</td><td>5.3.9</td><td>Server support for the inventory QoL features.</td></tr>
+  <tr><td>UI Fixes (server half)</td><td>5.3.11</td><td>Server support for the inventory QoL features.</td></tr>
   <tr><td>Dynamic Maps (server half)</td><td>1.1.3</td><td>Server support for the in-raid map.</td></tr>
-  <tr><td>WTT CommonLib (server half)</td><td>2.0.20</td><td>Backbone the WTT item mods below all depend on.</td></tr>
-  <tr><td>WTT Content Backport</td><td>1.0.7</td><td>Adds backported items, gear and achievements to the game.</td></tr>
+  <tr><td>WTT CommonLib (server half)</td><td>2.0.24</td><td>Backbone the WTT item mods below all depend on.</td></tr>
+  <tr><td>WTT Content Backport</td><td>1.1.5</td><td>Adds backported items, gear and achievements to the game.</td></tr>
   <tr><td>WTT Armory</td><td>2.0.5</td><td>A large pack of extra weapons and attachments (buyable from traders / found in loot — bots don't spawn with them).</td></tr>
   <tr><td>WTT Pack 'n' Strap (server half)</td><td>2.0.4</td><td>Adds belts/fanny packs (armband slot) and extra storage cases. Belts drop on death.</td></tr>
-  <tr><td>The Blacklist</td><td>3.0.1</td><td>Reworks the flea market: BSG's flea blacklist is lifted (meta ammo/items become buyable) and their prices rebalanced, with faster sales. This is where flea availability &amp; pricing is controlled.</td></tr>
+  <tr><td>The Blacklist</td><td>3.0.2</td><td>Reworks the flea market: BSG's flea blacklist is lifted (meta ammo/items become buyable) and their prices rebalanced, with faster sales. This is where flea availability &amp; pricing is controlled.</td></tr>
   <tr><td>Bosses Have Lega Medals</td><td>2.0.1</td><td>Bosses can drop LEDX-tier Lega medals — a little extra boss-hunting payoff.</td></tr>
   <tr><td>Bosses Have GP Coins</td><td>1.0.0</td><td>Bosses can drop GP coins.</td></tr>
   <tr><td>Bright Lasers</td><td>2.0.0</td><td>Makes weapon laser beams brighter and more visible.</td></tr>
   <tr><td>Hideout In Progress (server half)</td><td>2.0.2</td><td>Server support for showing hideout crafts/constructions in progress.</td></tr>
-  <tr><td>Raid Review</td><td>1.3.0</td><td>Records every raid to a browsable replay site (owner-only, on the home LAN). Keeps the last 30 raids.</td></tr>
+  <tr><td>Raid Review</td><td>1.4.0</td><td>Records every raid to a browsable replay site (owner-only, on the home LAN). Keeps the last 30 raids.</td></tr>
 </table>
 
 <h3 style="color:var(--green);font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:22px 0 4px">In your mod pack (client side)</h3>
@@ -254,7 +254,7 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>Waypoints</td><td>1.8.2</td><td>Expanded bot navigation mesh — bots go places vanilla bots can't.</td></tr>
   <tr><td>ORBIT</td><td>1.2.1</td><td>The bot objective/looting/extraction brain — bots behave like real players.</td></tr>
   <tr><td>ABPS</td><td>2.0.19</td><td>Client half of the spawn system.</td></tr>
-  <tr><td>UI Fixes</td><td>5.3.9</td><td>Dozens of inventory/menu fixes: swap in place, autostack, ammo presets, mousewheel scope zoom.</td></tr>
+  <tr><td>UI Fixes</td><td>5.3.11</td><td>Dozens of inventory/menu fixes: swap in place, autostack, ammo presets, mousewheel scope zoom.</td></tr>
   <tr><td>Fontaine's FOV Fix</td><td>4.0.1</td><td>High FOV without broken optics/zoom.</td></tr>
   <tr><td>Dynamic Maps</td><td>1.1.3</td><td>Interactive in-raid map with you, squad, extracts, quests.</td></tr>
   <tr><td>MoreCheckmarks</td><td>2.2.0</td><td>Item icons: needed for hideout / quests / barters.</td></tr>
@@ -265,13 +265,14 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>Healing Autocancel</td><td>5.0.0</td><td>Meds stop when the limb is full — no wasted charges.</td></tr>
   <tr><td>QuickSellFlea</td><td>1.3.1</td><td>One-click flea listing at average price.</td></tr>
   <tr><td>Level Endurance &amp; Strength</td><td>1.0.0</td><td>Movement skills keep leveling while mildly overweight.</td></tr>
-  <tr><td>Smajlec's Lights</td><td>1.2.0</td><td>Natural color grading instead of the grey-brown vanilla filter.</td></tr>
+  <tr><td>Amands's Graphics</td><td>1.7.0</td><td>Full lighting and post-processing overhaul — tone mapping, bloom, fog, depth of field, night vision and flashlight rework. Replaces Smajlec's Lights. Toggle with <span class="key">Insert</span>, tune in F12.</td></tr>
+  <tr><td>Brighter Interiors</td><td>1.0.1</td><td>Dials back the fake shadow boxes B** stuffs into building interiors — you can actually see indoors. Adjustable in F12.</td></tr>
   <tr><td>AO Replacer</td><td>1.0.3</td><td>Better ambient occlusion (GTAO) — more grounded, less flat lighting.</td></tr>
-  <tr><td>HollywoodFX</td><td>1.8.4</td><td>Rebuilt impacts, explosions, and effects — cinematic firefights.</td></tr>
-  <tr><td>Borkel's Realistic NVG</td><td>2.1.1</td><td>Night vision modeled on the real thing, customizable in F12.</td></tr>
+  <tr><td>HollywoodFX</td><td>2.0.0</td><td>Rebuilt impacts, explosions, and effects — cinematic firefights.</td></tr>
+  <tr><td>Borkel's Realistic NVG</td><td>3.0.2</td><td>Night vision modeled on the real thing, customizable in F12.</td></tr>
   <tr><td>Color Converter API</td><td>1.1.1</td><td>Enables the custom rarity colors client-side (required plumbing).</td></tr>
-  <tr><td>WTT CommonLib (client)</td><td>2.0.20</td><td>Client backbone for all the WTT item mods (required — a missing install = hard connect error).</td></tr>
-  <tr><td>WTT Content Backport (client)</td><td>1.0.7</td><td>Client half of the backported items/gear/achievements.</td></tr>
+  <tr><td>WTT CommonLib (client)</td><td>2.0.24</td><td>Client backbone for all the WTT item mods (required — a missing install = hard connect error).</td></tr>
+  <tr><td>WTT Content Backport (client)</td><td>1.1.5</td><td>Client half of the backported items/gear/achievements.</td></tr>
   <tr><td>WTT Armory (client)</td><td>2.0.5</td><td>Client half of the extra weapons pack.</td></tr>
   <tr><td>WTT Pack 'n' Strap (client)</td><td>2.0.4</td><td>Client half of the belts/storage. Belts sit in the armband slot and drop on death.</td></tr>
   <tr><td>Use Items From Anywhere</td><td>1.3.2</td><td>Pack 'n' Strap helper — use items regardless of where they sit.</td></tr>
@@ -285,7 +286,7 @@ automatically. Client-side mods are what's inside your mod pack zip. All version
   <tr><td>Vertical Hideout</td><td>1.0.0</td><td>Taller/scrollable hideout view.</td></tr>
   <tr><td>Hideout In Progress</td><td>2.0.2</td><td>Shows which hideout crafts/constructions are running.</td></tr>
   <tr><td>Task Automation</td><td>1.3.1</td><td>Auto-hands-in finished quests. (Keep "Auto Find And Obtain"/"Auto Find In Raid" OFF — see tuning guide.)</td></tr>
-  <tr><td>Raid Review (recorder)</td><td>1.3.0</td><td>Records raids for the server's replay site.</td></tr>
+  <tr><td>Raid Review (recorder)</td><td>1.4.0</td><td>Records raids for the server's replay site.</td></tr>
 </table>
 <p class="small">Optional extras in the pack's <span class="key">optional\</span> folder (personal, not required): CloudSix (volumetric clouds, GPU-heavy) and Increase Look Direction.</p>
 <p class="small">Plus, installed separately by you during setup: the Fika client plugin 2.3.4 (via Fika-Installer).
@@ -293,7 +294,7 @@ The pack also drops in our tuned SAIN difficulty preset (auto-selected) so your 
 
 <footer>
   HOMESTEAD · SPT 4.0.13 + Fika · dedicated hardware, 24/7 · profiles backed up daily<br>
-  Mod pack: <a href="https://drive.google.com/file/d/1GQERpJK_OxC3RKbaUMR-qkAQ2F6mNOsI/view?usp=sharing">download here</a> ·
+  Mod pack: <a href="__PACK_URL__">download here</a> ·
   <a href="tuning.html">Tuning &amp; settings guide</a> ·
   Server address comes with this invite — ask me, and don't post it publicly.
 </footer>
